@@ -18,3 +18,16 @@ def cleanup_expired_users():
     expired_users.delete()
     
     return f"Deleted {count} expired users at {now}"
+
+
+@shared_task
+def send_mail_to_user(subject,message,settings,email,fail_silently):
+    send(
+        subject,
+        message,
+        settings,
+        email,
+        fail_silently,
+    )
+    return sent > 0
+    

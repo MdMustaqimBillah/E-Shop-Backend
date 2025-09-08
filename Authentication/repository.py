@@ -1,6 +1,6 @@
-from Repository.base_repository import BaseRepository
+from Base_Repository.base_repository import BaseRepository
 from Authentication.models import User
-from Services.email_service import send_verification_email
+from Authentication.Services.email_service import send_verification_email
 import uuid
 
 class UserRepository(BaseRepository):

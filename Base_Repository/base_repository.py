@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.exceptions import ObjectDoesNotExitst
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.validators import ValidationError
 
 
@@ -10,7 +10,7 @@ class BaseRepository:
         
         
     def get_all(self):
-        return self.models.objects.all()
+        return self.model.objects.all()
     
     def get_by_id(self, obj_id):
         

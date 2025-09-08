@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import User
-from .repository import UserRepository
+from Authentication.repository import UserRepository
 
 
 

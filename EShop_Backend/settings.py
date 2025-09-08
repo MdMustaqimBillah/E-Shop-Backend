@@ -175,13 +175,11 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Celery Configuration
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'  # or 'memory://' for development
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
-
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0' # broker URL
+accept_content = ['application/json']
+task_serializer = 'json'
+result_serializer = 'json'
+timezone = 'UTC'
 
 from celery.schedules import crontab
 
