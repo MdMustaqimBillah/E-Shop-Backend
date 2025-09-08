@@ -3,7 +3,7 @@ from django.conf import settings
 
 def send_verification_email(email, token):
     subject = "Verify your email"
-    verification_link = f"http://localhost:8000/api/verify-email/{token}/"
+    verification_link = f"http://localhost:8000/api/auth/verify-email/{token}/"
     message = f"Click the link to verify your account: {verification_link}"
     
     sent = send_mail(

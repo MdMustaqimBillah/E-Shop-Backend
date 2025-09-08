@@ -38,6 +38,8 @@ class User(AbstractUser, PermissionsMixin):
     is_social_user = models.BooleanField(default=False)
     date_of_birth = models.DateField(blank=True, null=True)
     date_joined = models.DateTimeField(auto_now_add=True)
+    mail_link_expires_at = models.DateTimeField(blank=True, null=True)
+    
     
     
     USERNAME_FIELD = 'email'
@@ -48,5 +50,20 @@ class User(AbstractUser, PermissionsMixin):
     
     def __str__(self):
         return self.email
+
+    def is_email_verification_expired(self):
+        """Check if email verification has expired"""
+        if not self.mail_link_expires_at or self.is_active:
+            return False
+        return timezone.now() > self.mail_link_expires_at
+
+    
+    def verify_email(self):
+        self.is_active = True
+        self.is_verified = True
+        self.email_verification_token = None
+        self.save()
+
+
     class Meta:
         ordering = ['id']
