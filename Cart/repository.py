@@ -1,4 +1,4 @@
-from Repository.base_repository import BaseRepository
+from Base_Repository.base_repository import BaseRepository
 from Cart.models import Cart
 
 class CartRepository(BaseRepository):
