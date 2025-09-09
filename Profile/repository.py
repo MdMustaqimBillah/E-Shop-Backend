@@ -1,6 +1,6 @@
-from Repository.base_repository import BaseRepository
-from Profil.models import Profiile
+from Base_Repository.base_repository import BaseRepository
+from Profile.models import UserProfile
 
-class ProfilileRepository(self):
+class ProfileRepository(BaseRepository):
     def __init__(self):
-        super.__init__(Profile)
+        super().__init__(UserProfile)
