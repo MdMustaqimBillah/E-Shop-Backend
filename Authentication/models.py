@@ -32,8 +32,8 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser, PermissionsMixin):
     email = models.EmailField(unique=True)
-    email_varification_token = models.CharField(max_length=100, blank=True, null=True)
-    is_acitive = models.BooleanField(default=False)
+    email_verification_token = models.CharField(max_length=100, blank=True, null=True)
+    is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_social_user = models.BooleanField(default=False)

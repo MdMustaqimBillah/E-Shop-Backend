@@ -26,5 +26,5 @@ class Order(models.Model):
     
     def save(self, *args, **kwargs):
         if not self.order_id:
-            self.order_id = f"OID-{uuid.uuid5().hex[10:]}"
+            self.order_id = f"OID-{uuid.uuid4().hex[10:]}"
         super().save(*args, **kwargs)

@@ -12,7 +12,7 @@ from Custom_Permissions import custom_permissions
 class CartViewSet(ModelViewSet):
     queryset = CartRepository().get_all()
     permission_classes = [permissions.IsAuthenticated]
-    serializer_classes = CartSerializer
+    serializer_classe = CartSerializer
     
     
     

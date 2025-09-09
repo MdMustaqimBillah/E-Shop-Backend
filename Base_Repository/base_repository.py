@@ -15,18 +15,18 @@ class BaseRepository:
     def get_by_id(self, obj_id):
         
         try:
-            return self.models.objects.get(id=obj_id)
+            return self.model.objects.get(id=obj_id)
         except ObjectDoesNotExist:
             return ValidationError(f"{self.model.__name__} with id {obj_id} does not exist.")
         
     def create(self, *args, **kwargs):
         
-        return self.models.objects.create(*args, **kwargs)
+        return self.model.objects.create(*args, **kwargs)
     
     def update(self, obj_id,*args, **kwargs):
         
         try:
-            obj = self.models.objects.get(id=obj_id)
+            obj = self.model.objects.get(id=obj_id)
             
             for key, value in kwargs.items():
                 setattr(obj, key, value)
@@ -40,7 +40,7 @@ class BaseRepository:
     
     def delete( self, obj_id):
         try:
-            obj = self.models.ojects.get(id=obj_id)
+            obj = self.model.ojects.get(id=obj_id)
             obj.delete()
             return True
         except ObjectDoesNotExist:
